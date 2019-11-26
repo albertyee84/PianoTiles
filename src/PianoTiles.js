@@ -8,15 +8,14 @@ let lost;
 let start = false;
 
 document.getElementById("SwapMode1").addEventListener("click", e => {
-    document.getElementById("piano2").style.display = "inline";
+    document.getElementById("piano2").style.display = "block";
     document.getElementById("piano1").style.display = "none";
     document.getElementById("SwapMode1").style.display = "none";
-    document.getElementById("SwapMode2").style.display = "inline";
-    noloop();
+    document.getElementById("SwapMode2").style.display = "block";
 });
 function setup() {
     let infinite = createCanvas(401, 600);
-    infinite.parent("piano1");
+    infinite.parent("infinite");
     time = 3;
     for (let i = 0; i < 4; i++) {
         newRow();
@@ -99,16 +98,16 @@ function keyPressed() {
     if (!playing) return;
     let t;
     switch (keyCode) {
-        case 68:
+        case 68: //D
             t = 12;
             break;
-        case 70:
+        case 70: //F
             t = 13;
             break;
-        case 74:
+        case 74: //J
             t = 14;
             break;
-        case 75:
+        case 75: //K
             t = 15;
             break;
         case 27:

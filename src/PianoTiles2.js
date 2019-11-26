@@ -149,19 +149,19 @@ function update() {
         if (eachState[i]) {
             if (myTiles[i].y < 470 && myTiles[i].y > 350) {
                 switch (myTiles[i].keyCode) {
-                    case 65: //A
+                    case 68: //A
                         if (myTiles[i].x === 0)
                             correctKeyPress(i);
                         break;
-                    case 83: //S
+                    case 70: //S
                         if (myTiles[i].x === 75)
                             correctKeyPress(i);
                         break;
-                    case 68: //D
+                    case 74: //D
                         if (myTiles[i].x === 152)
                             correctKeyPress(i);
                         break;
-                    case 70: //F
+                    case 75: //F
                         if (myTiles[i].x === 228)
                             correctKeyPress(i);
                         break;
