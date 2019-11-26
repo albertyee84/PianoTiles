@@ -5,9 +5,18 @@ let time;
 let score;
 let playing;
 let lost;
+let start = false;
 
+document.getElementById("SwapMode1").addEventListener("click", e => {
+    document.getElementById("piano2").style.display = "inline";
+    document.getElementById("piano1").style.display = "none";
+    document.getElementById("SwapMode1").style.display = "none";
+    document.getElementById("SwapMode2").style.display = "inline";
+    noloop();
+});
 function setup() {
-    createCanvas(401, 600);
+    let infinite = createCanvas(401, 600);
+    infinite.parent("piano1");
     time = 3;
     for (let i = 0; i < 4; i++) {
         newRow();
@@ -16,6 +25,7 @@ function setup() {
     textAlign(CENTER);
     playing = false;
     lost = false;
+    start = false;
 }
 
 function draw() {
@@ -31,9 +41,9 @@ function draw() {
     if (!playing) {
         fill("#FF0000");
         textSize(60);
-        text(time, width / 2, height / 2);
+        text("Press Start", width / 2, height / 2);
 
-        if (frameCount % 60 === 0) {
+        if (start) {
             time--;
             if (time === 0) {
                 playing = true;
@@ -148,3 +158,7 @@ function removeRow() {
         tiles.pop();
     }
 }
+
+document.getElementById("start").addEventListener("click", e => {
+    start = true;
+});

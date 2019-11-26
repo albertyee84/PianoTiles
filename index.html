@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="./src/PianoTiles2.js" charset="utf-8" defer></script>
+    <script type="text/javascript" src="./src/PianoTiles.js" charset="utf-8" defer></script>
+    <script src="./lib/p5.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="piano2" style="display:none">
+        <canvas id="score_bar" width="300" height="70" style="position: absolute; left:36%;top: 0;"></canvas>
+        <canvas id="background" width="300" height="600" style="position: absolute; top:70; left: 36%;"></canvas>
+        <canvas id="piano" width="300" height="600" style="position: absolute; top:70; left: 36%;"></canvas>
+        <div id="btn">
+            <span id="start_btn">START</span>
+        </div>
+        <div id="HighScore">Hi Score: 0</div>
+        <button id="increaseSpeed">Increase Speed</button>
+        <button id="decreaseSpeed">Decrease Speed</button>
+    </div>
+    <div id="piano1">
+        <button id="start">Start</button>
+    </div>
+    <button id="SwapMode1">Switch to Piano Tiles 2</button>
+    <button id="SwapMode2" style="display:none">Switch to Piano Tiles 1</button>
+
+</body>
+</html>
