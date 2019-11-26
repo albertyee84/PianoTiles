@@ -148,3 +148,8 @@ h2{
     color: #fff;
     z-index: 100;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}

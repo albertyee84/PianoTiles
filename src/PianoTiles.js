@@ -8,10 +8,19 @@ let lost;
 let start = false;
 
 document.getElementById("SwapMode1").addEventListener("click", e => {
-    document.getElementById("piano2").style.display = "block";
-    document.getElementById("piano1").style.display = "none";
+    let elements;
+    elements = document.getElementsByClassName("piano2");
+    for(let i = 0; i < elements.length; i++){
+        elements[i].style.display = "inline";
+    }
+    // document.getElementById("piano").style.display = "none";
+    let elements2;
+    elements2 = document.getElementsByClassName("piano1");
+    for (let i = 0; i < elements2.length; i++) {
+        elements2[i].style.display = "none";
+    }
     document.getElementById("SwapMode1").style.display = "none";
-    document.getElementById("SwapMode2").style.display = "block";
+    document.getElementById("SwapMode2").style.display = "inline";
 });
 function setup() {
     let infinite = createCanvas(401, 600);
