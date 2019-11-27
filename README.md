@@ -38,3 +38,37 @@ https://piano-tiles-infinite.herokuapp.com/
     localStorage.setItem("highscore", highScore);
 ```
 * Users will be able to use the keyboard keys "DFJK" to play the game which corresponds with the columns.
+``` Javascript
+  function keyPressed() {
+    if (!playing) return;
+    let t;
+    switch (keyCode) {
+        case 68: //D
+            t = 12;
+            break;
+        case 70: //F
+            t = 13;
+            break;
+        case 74: //J
+            t = 14;
+            break;
+        case 75: //K
+            t = 15;
+            break;
+        case 27:
+            setup();
+            draw();
+            loop();
+        default:
+            return;
+    }
+    if (tiles[t] !== 0) {
+        tiles[t] = -1;
+        endGame(false);
+    } else {
+        score++;
+        newRow();
+        removeRow();
+    }
+  }
+```
