@@ -21,7 +21,6 @@ document.getElementById("SwapMode2").addEventListener("click", e => {
     for (let i = 0; i < elements2.length; i++) {
         elements2[i].style.display = "inline";
     }
-    // document.getElementById("piano2").style.display = "none";
     let elements;
     elements = document.getElementsByClassName("piano2");
     for (let i = 0; i < elements.length; i++) {
