@@ -7,12 +7,32 @@
     <link rel="stylesheet" href="css/index.css" />
     <script type="text/javascript" src="./src/PianoTiles2.js" charset="utf-8" defer></script>
     <script type="text/javascript" src="./src/PianoTiles.js" charset="utf-8" defer></script>
+    <script src="https://kit.fontawesome.com/1ee81a5cbb.js" crossorigin="anonymous"></script>
     <script src="./lib/p5.min.js"></script>
     <title>Piano Keys</title>
     <div class="header">
         <div class="header-switch">
             <button class="piano2" id="SwapMode2" style="display:none">Switch to Piano Tiles 1</button>
             <button class="piano1" id="SwapMode1">Switch to Piano Tiles 2</button>
+            <div class="dropdown">
+                <div class="dropdownbtn">
+                    How to Play
+                </div>
+                <ul class="dropdown-content">
+                    <li>
+                        Press Start to start the game
+                    </li>
+                    <li>
+                        Use keyboard keys'D' 'F' 'J' 'K' to select the corresponding
+                    </li>
+                    <li>
+                        black tile.
+                    </li>
+                    <li>
+                        Enjoy!
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="game-btns">
                 <div class="piano2" style="display:none" id="btn">
@@ -24,8 +44,13 @@
                 <div class="piano2" id="HighScore" style="display:none">Hi Score: 0</div>
         </div>
         <div class="social">
-            <a href="https://github.com/albertyee84" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/albert-yee/" target=_blank>LinkedIn</a>
+            <!-- <a href="https://github.com/albertyee84" target="_blank">GitHub</a>
+            <a href="https://github.com/albertyee84" className="fab fa-github" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/albert-yee" className="fab fa-linkedin" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/albert-yee/" target=_blank>LinkedIn</a> -->
+            <a href="https://github.com/albertyee84"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/albert-yee/"><i class="fab fa-linkedin"></i></a>
+
         </div>
     </div>
 </head>
