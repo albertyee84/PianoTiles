@@ -1,19 +1,18 @@
 const WIDTH = 100;
 const HEIGHT = 150;
 let tiles = [];
-let time;
+let time = 0;
 let score;
 let playing;
 let lost;
-let start = false;
 
+//Hides current game canvas and displays PianoTiles2 canvas
 document.getElementById("SwapMode1").addEventListener("click", e => {
     let elements;
     elements = document.getElementsByClassName("piano2");
     for(let i = 0; i < elements.length; i++){
         elements[i].style.display = "inline";
     }
-    // document.getElementById("piano").style.display = "none";
     let elements2;
     elements2 = document.getElementsByClassName("piano1");
     for (let i = 0; i < elements2.length; i++) {
@@ -22,41 +21,34 @@ document.getElementById("SwapMode1").addEventListener("click", e => {
     document.getElementById("SwapMode1").style.display = "none";
     document.getElementById("SwapMode2").style.display = "inline";
 });
+
+//setup canvas with p5min library
 function setup() {
-    let infinite = createCanvas(401, 600);
-    infinite.parent("infinite");
-    time = 3;
-    for (let i = 0; i < 4; i++) {
+    let infinite = createCanvas(401, 600); //canvas width and height
+    infinite.parent("infinite"); //nests canvas into div with id "infinite"
+    for (let i = 0; i < 4; i++) { //inserts 4 new rows of tiles
         newRow();
     }
-    score = 0;
-    textAlign(CENTER);
+    score = 0; //resets score
+    textAlign(CENTER); //aligns inner text to center
     playing = false;
     lost = false;
-    start = false;
 }
 
 function draw() {
     background(51);
 
-    for (let i = 0; i < tiles.length; i++) {
+    for (let i = 0; i < tiles.length; i++) { //continually draws each tile
         let x = (i % 4) * WIDTH + 1;
         let y = (Math.floor(i / 4) * HEIGHT);
 
         fill((tiles[i] !== 0) ? ((tiles[i] === 1) ? "#FFFFFF" : "#FF0000") : "#000000");
         rect(x, y, WIDTH, HEIGHT);
     }
-    if (!playing) {
+    if (!playing) { 
         fill("#FF0000");
         textSize(60);
         text("Press Start", width / 2, height / 2);
-
-        if (start) {
-            time--;
-            if (time === 0) {
-                playing = true;
-            }
-        }
     }
     if (playing) {
         time++;
@@ -67,7 +59,7 @@ function draw() {
 
     }
     if (lost) {
-        noLoop();
+        noLoop(); //stops the draw loop
         fill("#FF0000");
         textSize(60);
         text("Game Over!", width / 2, height / 2);
@@ -75,7 +67,7 @@ function draw() {
         text("Press esc to restart!", width / 2, height / 2 + 50);
         textSize(40);
         text("Your score is: " + score, width / 2, height / 2 + 100);
-        if (score > localStorage.getItem("beestScore")){
+        if (score > localStorage.getItem("beestScore")){ //saves best score to local storage
             localStorage.removeItem("beestScore");
             localStorage.setItem("bestScore", score);
         }
@@ -168,5 +160,5 @@ function removeRow() {
 }
 
 document.getElementById("start").addEventListener("click", e => {
-    start = true;
+    playing = true;
 });
