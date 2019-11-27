@@ -4,6 +4,8 @@ https://piano-tiles-infinite.herokuapp.com/
 * A fun interactive game that tests the users hand eye coordination.
 
 ![Screen Shot 2019-11-26 at 2 32 46 PM](https://user-images.githubusercontent.com/52211990/69678179-ab485700-1059-11ea-8141-8219cc04a8ab.png)
+![playdemo](https://user-images.githubusercontent.com/52211990/69684312-194a4980-106d-11ea-92c7-3a024fa1a9a2.gif)
+
 
 ## Technologies
 * JavaScript
