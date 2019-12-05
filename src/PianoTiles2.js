@@ -74,6 +74,30 @@ document.getElementById('btn').addEventListener('click', function (e) {
 
 });
 
+document.addEventListener("keypress", function onPress(event) {
+    content = document.getElementById('start_btn');
+    if (content.innerHTML === "START") {
+        generate = window.setInterval(generateBlock, 600);
+        interval = window.setInterval(update, 5);
+        content.innerHTML = "PAUSE";
+    }
+    else if (content.innerHTML === "RESTART") {
+        myScore = 0;
+        myTiles.forEach(tile => {
+            context.clearRect(tile.x, tile.y, tile.width, tile.height);
+        });
+        eachState = [false, false, false, false, false];
+        myTiles = [];
+        content.innerHTML = "START";
+    } else {
+        window.clearInterval(interval);
+        window.clearInterval(generate);
+        content.innerHTML = "START";
+    }
+    highscore = document.getElementById("HighScore"); //adds highscore to html element
+    highscore.innerHTML = "Hi Score: " + highScore;
+});
+
 
 
 function generateBlock() {
@@ -196,6 +220,8 @@ function update() {
         }
     }
 }
+
+
 
 function paintWindow() {
     let myGradient;
