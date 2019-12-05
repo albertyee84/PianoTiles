@@ -96,7 +96,14 @@ function mousePressed() {
 }
 
 function keyPressed() {
-    if (!playing) return;
+    if (!playing){
+        switch (keyCode) {
+        case 13:
+            playing = true;
+        default:
+            return;
+        }
+    }
     let t;
     switch (keyCode) {
         case 68: //D
@@ -112,6 +119,10 @@ function keyPressed() {
             t = 15;
             break;
         case 27:
+            setup();
+            draw();
+            loop();
+        case 13:
             setup();
             draw();
             loop();
