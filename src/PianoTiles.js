@@ -178,3 +178,4 @@ document.getElementsByClassName("instructions")[0].addEventListener("click", e =
     e.target.style.display = "none";
     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
 })
+
