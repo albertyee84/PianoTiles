@@ -1,3 +1,34 @@
+.instructions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    width: 70%;
+    background-color: white;
+    color: white;
+    margin-left: 200px;
+    height: 92vh;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    background-image: linear-gradient(#3B8, #000);
+
+}
+
+h2{
+    backdrop-filter: blur(15px);
+}
+
+button {
+    background-color: #278e67;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+}
+
+button:hover{
+    background-color: #195c42;
+}
 #infinite{
     display: flex;
     justify-content: center;
@@ -202,34 +233,3 @@ li{
     display: block;
 }
 
-.instructions{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 50%;
-    width: 70%;
-    background-color: white;
-    color: white;
-    margin-left: 200px;
-    height: 92vh;
-    border-radius: 5px;
-    margin-bottom: 100px;
-    background-image: linear-gradient(#3B8, #000);
-
-}
-
-h2{
-    backdrop-filter: blur(15px);
-}
-
-button {
-    background-color: #278e67;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-    height: 30px;
-}
-
-button:hover{
-    background-color: #195c42;
-}
