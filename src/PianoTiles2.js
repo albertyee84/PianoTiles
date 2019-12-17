@@ -30,51 +30,26 @@ document.getElementById("SwapMode2").addEventListener("click", e => {
     document.getElementById("SwapMode1").style.display = "inline";
 });
 
-paintWindow(); 
+paintWindow();
 
-document.getElementById("increaseSpeed").addEventListener("click", e=>{
+document.getElementById("increaseSpeed").addEventListener("click", e => {
     speed = speed + 0.25;
-    if(speed > 2) speed = 2;
+    if (speed > 2) speed = 2;
     console.log(speed);
 });
 
-document.getElementById("decreaseSpeed").addEventListener("click", e=>{
+document.getElementById("decreaseSpeed").addEventListener("click", e => {
     speed = speed - 0.25;
-    if(speed < 1) speed = 1;
+    if (speed < 1) speed = 1;
     console.log(speed);
 });
 
-document.addEventListener("DOMContentLoaded", ()=>{ //loads highscore after refresh
+document.addEventListener("DOMContentLoaded", () => { //loads highscore after refresh
     highscore = document.getElementById("HighScore");
     highscore.innerHTML = "Hi Score: " + highScore;
 });
 
 document.getElementById('btn').addEventListener('click', function (e) {
-    content = document.getElementById('start_btn');
-    if (content.innerHTML === "START") {
-        generate = window.setInterval(generateBlock, 600);
-        interval = window.setInterval(update, 5);
-        content.innerHTML = "PAUSE";
-    }
-    else if(content.innerHTML === "RESTART"){
-        myScore = 0;
-        myTiles.forEach(tile => {
-            context.clearRect(tile.x, tile.y, tile.width, tile.height);
-        });
-        eachState = [false, false, false, false, false];
-        myTiles = [];
-        content.innerHTML = "START";
-    } else {
-        window.clearInterval(interval);
-        window.clearInterval(generate);
-        content.innerHTML = "START";
-    }
-    highscore = document.getElementById("HighScore"); //adds highscore to html element
-    highscore.innerHTML = "Hi Score: " + highScore;
-
-});
-
-document.addEventListener("keypress", function onPress(event) {
     content = document.getElementById('start_btn');
     if (content.innerHTML === "START") {
         generate = window.setInterval(generateBlock, 600);
@@ -96,31 +71,32 @@ document.addEventListener("keypress", function onPress(event) {
     }
     highscore = document.getElementById("HighScore"); //adds highscore to html element
     highscore.innerHTML = "Hi Score: " + highScore;
+
 });
 
 
 
 function generateBlock() {
 
-    let randomPosition = Math.floor(Math.random()*numOfTiles);
+    let randomPosition = Math.floor(Math.random() * numOfTiles);
     let flag = true;
-    for( let i = 0; i < numOfTiles; i++){
-        if(!eachState[i]){
+    for (let i = 0; i < numOfTiles; i++) {
+        if (!eachState[i]) {
             flag = false;
         }
     }
-    if(flag) return;
+    if (flag) return;
     while (eachState[randomPosition])
         randomPosition = Math.floor(Math.random() * numOfTiles);
     myTiles[randomPosition] = new Block(randomPosition);
 }
 
 function Block(position) {
-    if(!eachState[position]){
+    if (!eachState[position]) {
         eachState[position] = true;
     }
     this.position = position;
-    this.appearPosition = Math.floor(Math.random()*4);
+    this.appearPosition = Math.floor(Math.random() * 4);
 
     this.width = 70;
     this.height = 120;
@@ -209,7 +185,7 @@ function update() {
                 window.clearInterval(interval);
                 window.clearInterval(generate);
                 content.innerHTML = "RESTART";
-                if(myScore > highScore){
+                if (myScore > highScore) {
                     highScore = myScore;
                     localStorage.removeItem("highscore");
                     localStorage.setItem("highscore", highScore); //adds highscore to localstorage
@@ -220,8 +196,6 @@ function update() {
         }
     }
 }
-
-
 
 function paintWindow() {
     let myGradient;
