@@ -24,7 +24,7 @@ document.getElementById("SwapMode1").addEventListener("click", e => {
 
 //setup canvas with p5min library
 function setup() {
-    let infinite = createCanvas(401, 600); //canvas width and height
+    let infinite = createCanvas(300, 600); //canvas width and height
     infinite.parent("infinite"); //nests canvas into div with id "infinite"
     for (let i = 0; i < 4; i++) { //inserts 4 new rows of tiles
         newRow();
