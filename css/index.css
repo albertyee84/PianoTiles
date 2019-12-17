@@ -201,3 +201,21 @@ li{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.instructions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    width: 70%;
+    background-color: white;
+    color: black;
+    margin-left: 200px;
+    height: 92vh;
+    border-radius: 5px;
+    margin-bottom: 100px;
+}
+
+h2{
+    backdrop-filter: blur(15px);
+}
