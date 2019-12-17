@@ -98,7 +98,7 @@ function Block(position) {
     this.position = position;
     this.appearPosition = Math.floor(Math.random() * 4);
 
-    this.width = 70;
+    this.width = 100;
     this.height = 120;
     this.color = "black";
     switch (this.appearPosition) {
@@ -107,15 +107,15 @@ function Block(position) {
             this.y = -120;
             break;
         case 1:
-            this.x = 75;
+            this.x = 100;
             this.y = -120;
             break;
         case 2:
-            this.x = 152;
+            this.x = 200;
             this.y = -120;
             break;
         case 3:
-            this.x = 228;
+            this.x = 300;
             this.y = -120;
             break;
     }
@@ -133,7 +133,7 @@ function Block(position) {
 
 function correctKeyPress(index) {
     myScore++;
-    context.clearRect(myTiles[index].x, myTiles[index].y, 70, 120);
+    context.clearRect(myTiles[index].x, myTiles[index].y, 100, 120);
     myTiles[index].live = false;
     eachState[index] = false;
 }
@@ -150,8 +150,8 @@ function update() {
         if (eachState[i]) {
             myTiles[i].y += speed;
             context.fillStyle = "black";
-            context.fillRect(myTiles[i].x, myTiles[i].y, 70, 120);
-            context.clearRect(myTiles[i].x, myTiles[i].y - 2, 70, 2);
+            context.fillRect(myTiles[i].x, myTiles[i].y, 100, 120);
+            context.clearRect(myTiles[i].x, myTiles[i].y - 2, 100, 2);
         }
     }
     for (let i = 0; i < numOfTiles; ++i) {
@@ -163,23 +163,23 @@ function update() {
                             correctKeyPress(i);
                         break;
                     case 70: //S
-                        if (myTiles[i].x === 75)
+                        if (myTiles[i].x === 100)
                             correctKeyPress(i);
                         break;
                     case 74: //D
-                        if (myTiles[i].x === 152)
+                        if (myTiles[i].x === 200)
                             correctKeyPress(i);
                         break;
                     case 75: //F
-                        if (myTiles[i].x === 228)
+                        if (myTiles[i].x === 300)
                             correctKeyPress(i);
                         break;
                 }
             }
             if (myTiles[i].y > 470) {
-                context.clearRect(myTiles[i].x, myTiles[i].y, 70, 120);
+                context.clearRect(myTiles[i].x, myTiles[i].y, 100, 120);
                 context.fillStyle = "rgba(245,13,13,0.8)";
-                context.fillRect(myTiles[i].x, myTiles[i].y, 70, 120);
+                context.fillRect(myTiles[i].x, myTiles[i].y, 100, 120);
                 myTiles[i].live = false;
                 eachState[i] = false;
                 window.clearInterval(interval);
@@ -204,29 +204,29 @@ function paintWindow() {
     myGradient.addColorStop(1, "rgba(254,74,251,0.5)");
 
     contextBackground.fillStyle = myGradient;
-    contextBackground.fillRect(0, 0, 300, 600);
+    contextBackground.fillRect(0, 0, 400, 600);
 
     contextBackground.beginPath();
-    contextBackground.moveTo(72, 0);
-    contextBackground.lineTo(72, 600);
+    contextBackground.moveTo(100, 0);
+    contextBackground.lineTo(100, 600);
     contextBackground.strokeStyle = "white";
     contextBackground.stroke();
 
     contextBackground.beginPath();
-    contextBackground.moveTo(148, 0);
-    contextBackground.lineTo(148, 600);
+    contextBackground.moveTo(200, 0);
+    contextBackground.lineTo(200, 600);
     contextBackground.strokeStyle = "white";
     contextBackground.stroke();
 
     contextBackground.beginPath();
-    contextBackground.moveTo(226, 0);
-    contextBackground.lineTo(226, 600);
+    contextBackground.moveTo(300, 0);
+    contextBackground.lineTo(300, 600);
     contextBackground.strokeStyle = "white";
     contextBackground.stroke();
 
     contextBackground.beginPath();
     contextBackground.moveTo(0, 470);
-    contextBackground.lineTo(300, 470);
+    contextBackground.lineTo(400, 470);
     contextBackground.strokeStyle = "white";
     contextBackground.stroke();
 }
