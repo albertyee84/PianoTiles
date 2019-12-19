@@ -210,7 +210,7 @@ li{
     width: 70%;
     background-color: white;
     color: white;
-    margin-left: 200px;
+    margin-left: 15%;
     height: 92vh;
     border-radius: 5px;
     margin-bottom: 100px;
@@ -242,7 +242,7 @@ button:hover{
     width: 70%;
     background-color: white;
     color: white;
-    margin-left: 200px;
+    margin-left: 15%;
     height: 92vh;
     border-radius: 5px;
     margin-bottom: 100px;
@@ -251,5 +251,5 @@ button:hover{
 }
 
 .game-btns {
-    margin-left: 10%;
+    /* margin-left: 10%; */
 }
