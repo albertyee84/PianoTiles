@@ -233,3 +233,23 @@ button {
 button:hover{
     background-color: #195c42;
 }
+
+.instructions1{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    width: 70%;
+    background-color: white;
+    color: white;
+    margin-left: 200px;
+    height: 92vh;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    background-image: linear-gradient(#3B8, #000);
+    flex-direction: column;
+}
+
+.game-btns {
+    margin-left: 10%;
+}

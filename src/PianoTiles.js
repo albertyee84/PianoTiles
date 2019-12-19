@@ -59,21 +59,24 @@ function draw() {
 
     }
     if (lost) {
+
+        document.getElementsByClassName("instructions1")[0].style.display = "flex";
+        document.getElementsByClassName("info")[0].innerHTML = 'Your score is:' + score;
         noLoop(); //stops the draw loop
         fill("#FF0000");
-        textSize(60);
-        text("Game Over!", width / 2, height / 2);
-        textSize(40);
-        text("Press esc to restart!", width / 2, height / 2 + 50);
-        textSize(40);
-        text("Your score is: " + score, width / 2, height / 2 + 100);
+        // textSize(60);
+        // text("Game Over!", width / 2, height / 2);
+        // textSize(40);
+        // text("Press esc to restart!", width / 2, height / 2 + 50);
+        // textSize(40);
+        // text("Your score is: " + score, width / 2, height / 2 + 100);
         if (score > localStorage.getItem("beestScore")){ //saves best score to local storage
             localStorage.removeItem("beestScore");
             localStorage.setItem("bestScore", score);
         }
         let bestScore = localStorage.getItem("bestScore");
-        textSize(40);
-        text("The Best score is: " + bestScore, width / 2, height / 2 + 150);
+        // textSize(40);
+        // text("The Best score is: " + bestScore, width / 2, height / 2 + 150);
     }
 }
 
@@ -179,14 +182,17 @@ document.getElementById("start").addEventListener("click", e => {
 document.getElementsByClassName("instructions")[0].addEventListener("click", e => {
     e.target.style.display = "none";
     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+    document.getElementsByClassName("instructions1")[0].style.display = "none";
 })
 
 document.getElementsByClassName("board")[0].addEventListener("click", e => {
     document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+    document.getElementsByClassName("instructions1")[0].style.display = "none";
 })
 document.getElementsByClassName("header")[0].addEventListener("click", e => {
     document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+    document.getElementsByClassName("instructions1")[0].style.display = "none";
 })
 

@@ -71,7 +71,8 @@ document.getElementById('btn').addEventListener('click', function (e) {
     }
     highscore = document.getElementById("HighScore"); //adds highscore to html element
     highscore.innerHTML = "Hi Score: " + highScore;
-
+    document.getElementsByClassName("instructions1")[0].style.display = "none";
+    
 });
 
 
@@ -144,7 +145,7 @@ function update() {
     contextScore.font = "30px Verdana";
     contextScore.textAlign = 'center';
     contextScore.fillStyle = "rgba(88,38,255,0.8)";
-    contextScore.fillText(myScore.toString(), (a.width / 2) - (textWidth / 2) + 9, 50);
+    // contextScore.fillText(myScore.toString(), (a.width / 2) - (textWidth / 2) + 9, 50);
 
     for (let i = 0; i < numOfTiles; ++i) {
         if (eachState[i]) {
@@ -190,9 +191,13 @@ function update() {
                     localStorage.removeItem("highscore");
                     localStorage.setItem("highscore", highScore); //adds highscore to localstorage
                 }
+                document.getElementsByClassName("instructions1")[0].style.display = "flex";
+                document.getElementsByClassName("info")[0].innerHTML = 'Your score is:' + myScore;
+                
             }
         }
         else {//not alive
+            
         }
     }
 }
