@@ -126,11 +126,13 @@ function keyPressed() {
             draw();
             loop();
             time = 0;
+            document.getElementsByClassName("instructions1")[0].style.display = "none";
         case 13:
             setup();
             draw();
             loop();
             time = 0;
+            document.getElementsByClassName("instructions1")[0].style.display = "none";
         default:
             return;
     }
