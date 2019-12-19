@@ -122,10 +122,12 @@ function keyPressed() {
             setup();
             draw();
             loop();
+            time = 0;
         case 13:
             setup();
             draw();
             loop();
+            time = 0;
         default:
             return;
     }
@@ -176,6 +178,15 @@ document.getElementById("start").addEventListener("click", e => {
 
 document.getElementsByClassName("instructions")[0].addEventListener("click", e => {
     e.target.style.display = "none";
+    document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+})
+
+document.getElementsByClassName("board")[0].addEventListener("click", e => {
+    document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
+    document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+})
+document.getElementsByClassName("header")[0].addEventListener("click", e => {
+    document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
 })
 
