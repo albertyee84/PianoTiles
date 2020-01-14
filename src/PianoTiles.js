@@ -6,21 +6,21 @@ let score;
 let playing;
 let lost;
 
-//Hides current game canvas and displays PianoTiles2 canvas
-document.getElementById("SwapMode1").addEventListener("click", e => {
-    let elements;
-    elements = document.getElementsByClassName("piano2");
-    for(let i = 0; i < elements.length; i++){
-        elements[i].style.display = "inline";
-    }
-    let elements2;
-    elements2 = document.getElementsByClassName("piano1");
-    for (let i = 0; i < elements2.length; i++) {
-        elements2[i].style.display = "none";
-    }
-    document.getElementById("SwapMode1").style.display = "none";
-    document.getElementById("SwapMode2").style.display = "inline";
-});
+// //Hides current game canvas and displays PianoTiles2 canvas
+// document.getElementById("SwapMode1").addEventListener("click", e => {
+//     let elements;
+//     elements = document.getElementsByClassName("piano2");
+//     for(let i = 0; i < elements.length; i++){
+//         elements[i].style.display = "inline";
+//     }
+//     let elements2;
+//     elements2 = document.getElementsByClassName("piano1");
+//     for (let i = 0; i < elements2.length; i++) {
+//         elements2[i].style.display = "none";
+//     }
+//     document.getElementById("SwapMode1").style.display = "none";
+//     document.getElementById("SwapMode2").style.display = "inline";
+// });
 
 //setup canvas with p5min library
 function setup() {
@@ -48,7 +48,8 @@ function draw() {
     if (!playing) { 
         fill("#FF0000");
         textSize(60);
-        text("Press Start", width / 2, height / 2);
+        text("Hit Enter", width / 2, height / 2);
+        text("To Start", width / 2, height / 2 + 100);
     }
     if (playing) {
         time++;
@@ -177,9 +178,9 @@ function removeRow() {
     }
 }
 
-document.getElementById("start").addEventListener("click", e => {
-    playing = true;
-});
+// document.getElementById("start").addEventListener("click", e => {
+//     playing = true;
+// });
 
 document.getElementsByClassName("instructions")[0].addEventListener("click", e => {
     e.target.style.display = "none";
