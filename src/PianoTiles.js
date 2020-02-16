@@ -7,6 +7,7 @@ let playing;
 let lost;
 let notes = ["E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', "D", "E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', 'D', 'E', 'D', 'C', 'C'];
 let noteIndex = 0;
+let audio = true;
 
 // //Hides current game canvas and displays PianoTiles2 canvas
 // document.getElementById("SwapMode1").addEventListener("click", e => {
@@ -95,6 +96,7 @@ function mousePressed() {
             endGame(false);
         } else {
             score++;
+            playNote();
             newRow();
             removeRow();
         }
@@ -206,15 +208,25 @@ document.getElementsByClassName("header")[0].addEventListener("click", e => {
 function playNote(key) {
     const noteAudio = document.getElementById(notes[noteIndex]);
     noteAudio.currentTime = 0;
-    noteAudio.play();
-    // key.classList.add('active');
-    // noteAudio.addEventListener('ended', () => {
-    //     key.classList.remove('active');
-    // });
+    if(audio) noteAudio.play();
     noteIndex++;
     noteIndex = (noteIndex % notes.length);
 }
 
 document.addEventListener('keydown', e => {
     if (e.repeat) return;
+});
+
+document.querySelector('.volume').addEventListener('click', e => {
+    let audioElement = document.querySelector('.volume');
+    if(audio){
+        audio = false;
+        audioElement.classList.remove('fa-volume-up')
+        audioElement.classList.add('fa-volume-mute')
+        console.log(audioElement)
+    } else {
+        audio = true;
+        audioElement.classList.remove('fa-volume-mute')
+        audioElement.classList.add('fa-volume-up')
+    }
 });

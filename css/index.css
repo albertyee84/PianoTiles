@@ -253,3 +253,8 @@ button:hover{
 .game-btns {
     /* margin-left: 10%; */
 }
+
+.volume{
+    cursor: pointer;
+    margin-left: 10px;
+}
