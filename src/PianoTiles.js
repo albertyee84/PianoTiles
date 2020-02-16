@@ -213,7 +213,6 @@ function playNote(key) {
     // });
     noteIndex++;
     noteIndex = (noteIndex % notes.length);
-    console.log(noteIndex);
 }
 
 document.addEventListener('keydown', e => {
