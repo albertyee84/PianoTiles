@@ -5,6 +5,8 @@ let time = 0;
 let score;
 let playing;
 let lost;
+let notes = ["E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', "D", "E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', 'D', 'E', 'D', 'C', 'C'];
+let noteIndex = 0;
 
 // //Hides current game canvas and displays PianoTiles2 canvas
 // document.getElementById("SwapMode1").addEventListener("click", e => {
@@ -140,10 +142,12 @@ function keyPressed() {
     if (tiles[t] !== 0) {
         tiles[t] = -1;
         endGame(false);
+        noteIndex = 0;
     } else {
         score++;
         newRow();
         removeRow();
+        playNote();
     }
 }
 
@@ -199,3 +203,19 @@ document.getElementsByClassName("header")[0].addEventListener("click", e => {
     document.getElementsByClassName("instructions1")[0].style.display = "none";
 })
 
+function playNote(key) {
+    const noteAudio = document.getElementById(notes[noteIndex]);
+    noteAudio.currentTime = 0;
+    noteAudio.play();
+    // key.classList.add('active');
+    // noteAudio.addEventListener('ended', () => {
+    //     key.classList.remove('active');
+    // });
+    noteIndex++;
+    noteIndex = (noteIndex % notes.length);
+    console.log(noteIndex);
+}
+
+document.addEventListener('keydown', e => {
+    if (e.repeat) return;
+});
