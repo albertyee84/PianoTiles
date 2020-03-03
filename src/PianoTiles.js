@@ -59,6 +59,13 @@ function draw() {
         text("F", width / 4 + 50, height - 50)
         text('J', width / 2 + 50, height - 50)
         text('K', width - 50, height - 50)
+        textSize(30);
+        text(`Hit key corresponding`, width / 2, height - 225);
+        text(`to black tile`, width / 2, height - 200);
+        text("↓", width / 4 - 50, height - 155)
+        text("↓", width / 4 + 50, height - 155)
+        text("↓", width / 2 + 50, height - 155)
+        text("↓", width - 50, height - 155)
     }
     if (playing) {
         time++;
