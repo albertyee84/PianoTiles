@@ -8,6 +8,7 @@ let lost;
 let notes = ["E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', "D", "E", 'E', 'F', 'G', 'G', 'F', 'E', 'D', 'C', 'C', 'D', 'E', 'D', 'C', 'C'];
 let noteIndex = 0;
 let audio = true;
+let howtoplayMouseover = false;
 
 // //Hides current game canvas and displays PianoTiles2 canvas
 // document.getElementById("SwapMode1").addEventListener("click", e => {
@@ -40,6 +41,7 @@ function setup() {
 
 function draw() {
     background(51);
+    
 
     for (let i = 0; i < tiles.length; i++) { //continually draws each tile
         let x = (i % 4) * WIDTH + 1;
@@ -51,8 +53,12 @@ function draw() {
     if (!playing) { 
         fill("#FF0000");
         textSize(60);
-        text("Hit Enter", width / 2, height / 2);
-        text("To Start", width / 2, height / 2 + 100);
+        text("Hit Enter", width / 2, height / 4);
+        text("To Start", width / 2, height / 4 + 100);
+        text("D", width / 4 - 50, height - 50)
+        text("F", width / 4 + 50, height - 50)
+        text('J', width / 2 + 50, height - 50)
+        text('K', width - 50, height - 50)
     }
     if (playing) {
         time++;
@@ -60,12 +66,24 @@ function draw() {
         textSize(60);
         let t = Math.floor(time / 60) + ":" + time % 60;
         text(t, width / 2, height / 4);
+        text("D", width / 4 - 50, height - 50)
+        text("F", width / 4 + 50, height - 50)
+        text('J', width / 2 + 50, height - 50)
+        text('K', width - 50, height - 50)
 
     }
     if (lost) {
 
-        document.getElementsByClassName("instructions1")[0].style.display = "flex";
-        document.getElementsByClassName("info")[0].innerHTML = 'Your score is:' + score;
+        // document.getElementsByClassName("instructions1")[0].style.display = "flex";
+        // document.getElementsByClassName("info")[0].innerHTML = 'Your score is:' + score;
+
+        fill("#FF0000");
+        textSize(30);
+        text(`Game Over!`, width / 2, height / 2 - 50);
+        text(`Your Score is:`, width / 2, height / 2 - 25);
+        text(`${score}`, width / 2, height / 2);
+        text(`Hit enter to restart`, width / 2, height - 225);
+
         noLoop(); //stops the draw loop
         fill("#FF0000");
         // textSize(60);
@@ -81,6 +99,15 @@ function draw() {
         let bestScore = localStorage.getItem("bestScore");
         // textSize(40);
         // text("The Best score is: " + bestScore, width / 2, height / 2 + 150);
+    }
+    if (howtoplayMouseover) {
+        textSize(30);
+        text(`Hit key corresponding`, width / 2, height - 225   );
+        text(`to black tile`, width / 2, height - 200);
+        text("↓", width / 4 - 50, height - 155)
+        text("↓", width / 4 + 50, height - 155)
+        text("↓", width / 2 + 50, height - 155)
+        text("↓", width - 50, height - 155)
     }
 }
 
@@ -131,13 +158,13 @@ function keyPressed() {
             draw();
             loop();
             time = 0;
-            document.getElementsByClassName("instructions1")[0].style.display = "none";
+            // document.getElementsByClassName("instructions1")[0].style.display = "none";
         case 13:
             setup();
             draw();
             loop();
             time = 0;
-            document.getElementsByClassName("instructions1")[0].style.display = "none";
+            // document.getElementsByClassName("instructions1")[0].style.display = "none";
         default:
             return;
     }
@@ -188,22 +215,22 @@ function removeRow() {
 //     playing = true;
 // });
 
-document.getElementsByClassName("instructions")[0].addEventListener("click", e => {
-    e.target.style.display = "none";
-    document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
-    document.getElementsByClassName("instructions1")[0].style.display = "none";
-})
+// document.getElementsByClassName("instructions")[0].addEventListener("click", e => {
+//     e.target.style.display = "none";
+//     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+//     document.getElementsByClassName("instructions1")[0].style.display = "none";
+// })
 
-document.getElementsByClassName("board")[0].addEventListener("click", e => {
-    document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
-    document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
-    document.getElementsByClassName("instructions1")[0].style.display = "none";
-})
-document.getElementsByClassName("header")[0].addEventListener("click", e => {
-    document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
-    document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
-    document.getElementsByClassName("instructions1")[0].style.display = "none";
-})
+// document.getElementsByClassName("board")[0].addEventListener("click", e => {
+//     document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
+//     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+//     document.getElementsByClassName("instructions1")[0].style.display = "none";
+// })
+// document.getElementsByClassName("header")[0].addEventListener("click", e => {
+//     document.getElementsByClassName("board")[0].firstElementChild.style.display = 'none';
+//     document.getElementsByTagName('h2')[0].style.backdropFilter = 'none';
+//     document.getElementsByClassName("instructions1")[0].style.display = "none";
+// })
 
 function playNote(key) {
     const noteAudio = document.getElementById(notes[noteIndex]);
@@ -230,3 +257,10 @@ document.querySelector('.volume').addEventListener('click', e => {
         audioElement.classList.add('fa-volume-up')
     }
 });
+
+document.querySelector('.howtoplay').addEventListener('mouseenter', ()=> {
+    howtoplayMouseover = true;
+})
+document.querySelector('.howtoplay').addEventListener('mouseleave', ()=> {
+    howtoplayMouseover = false;
+})

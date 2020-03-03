@@ -218,10 +218,6 @@ li{
 
 }
 
-h2{
-    backdrop-filter: blur(15px);
-}
-
 button {
     background-color: #278e67;
     cursor: pointer;
